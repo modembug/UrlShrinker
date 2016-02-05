@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "REST API Reference";
+}
+<h1>@ViewBag.Title</h1>
+<br />
+
+<h2>Operation summary</h2>
+Here are the available REST API operations:
+<br />
+
+<h3>Entry Namespace</h3>
+
+<strong>Entry: </strong> create and look up entries.
+<br />
+<div style="max-width: 300px">
+    <table class="table table-condensed table-responsive">
+        <tbody>
+        <tr>
+            <td>
+                <code>GET</code>
+                <code>POST</code>
+            </td>
+            <td>
+                <code>/api/Entry</code>
+            </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+<div>
+    <h4>Examples</h4>
+    <p><text><code>GET</code> http://</text>@Request.Url.Host<text>/api/Entry/abc123 would return the inflated URL for token abc123.</text>
+    </p>
+    <p><text><code>POST</code> http://</text>@Request.Url.Host<text>/api/Entry/ with a raw value of http://google.com would return a shortened URL.</text>
+    </p>
+
+    <br/>
+
+    <h4>Error Messages</h4>
+    <ul>
+        <li>
+            <samp>Token <var>abc123</var> not found in database.</samp> indicates that the specified token does not exist in the system.
+        </li>
+        <li>
+            <samp>Please enter a URL.</samp> indicates that no value is present in the body of the request.
+        </li>
+        <li>
+            <samp>Please enter a valid URL.</samp> indicates that the URL provided was not a valid format.
+        </li>
+        <li>
+            <samp>Please ensure URL is less than 2048 characters.</samp> indicates that the URL provided is longer than allowed by the system.
+        </li>
+        <li>
+            <samp>API calls quota exceeded! maximum admitted <var>x</var> per <var>y</var>.</samp> indicates that too many (x) calls have been made within a given amount of time (y).
+        </li>
+    </ul>
+
+</div>

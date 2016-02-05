@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "UrlShrinker";
+}
+
+@model UrlShrinker.Models.HomeModel
+<h2>What URL would you like to shrink?</h2>
+<br/>
+<br/>
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.TextBoxFor(model => model.Url,
+            new
+            {
+                placeholder = "URL to shrink.",
+                @class = "form-control"
+            }) 
+    </div>
+
+    <input name="shrink" type="submit" class="btn btn-primary" value="Shrink"/>
+    <input name="inflate" type="submit" class="btn btn-primary" value="Inflate" />
+
+
+
+}
+
+@if (!string.IsNullOrEmpty(Model.Url) && ViewContext.ViewData.ModelState.IsValid)
+{
+<div>
+    <h3>Your URL is: </h3><a href="@Model.Url" target="_blank">@Model.Url</a>
+</div>
+}
